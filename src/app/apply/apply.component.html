@@ -1,0 +1,70 @@
+<div class="container">
+<h3 style="font-family: 'Bree Serif', serif;text-align: center" >CHOOSE YOUR VISA TYPE</h3>
+<div class="well">
+<button type="button" class="btn btn-warning" (click) = "day14()">14 Days Visa</button>
+<button type="button" class="btn btn-warning" (click) = "day30()">30 Days Visa</button>
+<button type="button" class="btn btn-warning" (click) = "day30m()">30 Days Visa(Multiple Entry)</button>
+<button type="button" class="btn btn-warning" (click) = "day60()">60 Days Visa</button>
+<button type="button" class="btn btn-warning" (click) = "day90()">90 Days Visa</button>
+<button type="button" class="btn btn-warning" (click) = "day90m()">90 Days Visa(Multiple Entry)</button>
+<button type="button" class="btn btn-warning" (click) = "day90j()">90 Days Visa(Job Seeler)</button>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="col-sm-4">
+
+    </div>
+    <div id="over" class="col-sm-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+              <span style="font-family: 'Bree Serif', serif;">14 DAYS VISA</span>
+            </div>
+            <div class="panel-body">
+            <div class="table table-striped" style="overflow: hidden;" >
+            <tr>
+                <th>Types of Visa</th>
+                <td>{{this.visaData[i].type}}</td>  
+            </tr>
+            <tr>
+                <th>Visa Validity</th>
+                <td>{{this.visaData[i].validity}}</td>  
+            </tr>
+            <tr>
+                <th>Stay Validity</th>
+                <td>{{this.visaData[i].stayValidity}}</td>  
+            </tr>
+            <tr>
+                <th>Processing Time</th>
+                <td>{{this.visaData[i].processing}}</td>  
+            </tr>
+            <tr>
+                <th>Govt Visa Fee</th>
+                <td>{{this.visaData[i].govFee | currency: 'USD' : true : '1.2-2'}}</td>  
+            </tr>
+            <tr>
+                <th>Service Fee</th>
+                <td>{{this.visaData[i].serviceFee | currency: 'USD' : true : '1.2-2'}}</td>  
+            </tr>
+            <tr>
+                <th>Total Cost</th>
+                <td>{{this.visaData[i].totalCost | currency: 'USD' : true : '1.2-2'}}</td>  
+            </tr>
+            <tr>
+                <th></th>
+                
+                <td><button class="btn btn-primary form-control" [routerLink]="['/form']">Apply now</button></td>  
+            </tr>
+              
+            
+            </div>
+            
+            </div>
+            
+            </div>
+            
+      </div>
+      <div class="col-sm-4">
+      
+        </div>
+  </div>
+</div>
+</div>

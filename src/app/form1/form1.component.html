@@ -1,0 +1,250 @@
+
+  <div class="container">
+      <h2 style="font-family: 'Bree Serif', serif;text-align: center" >Form</h2>
+      <hr>
+      <h3 style="font-family: 'Bree Serif', serif;text-align: center">Step 1</h3>
+      <h4 style="font-family: 'Bree Serif', serif;text-align: center">TRAVEL BASIC INFORMATION</h4>
+    
+      <!--Form-->
+      <form name="form" (ngSubmit)="visaForm1.form.valid && onSubmit()" #visaForm1="ngForm" novalidate>
+      <div class="well">
+      <div class="row">
+        <div class="col-sm-12">
+            <div class="col-sm-6">
+    
+              <!--Current Address-->
+              <div class="form-group">
+                  <label for="currentAddress">Current Address(where you are currently staying)</label>
+                  <textarea
+                    id="currentAddress"
+                    name="currentAddress"
+                    class="form-control"
+                    rows="6" 
+                    placeholder="Current Address"
+                    #currentAddress = "ngModel"
+                    [(ngModel)]="model.currentAddress"
+                    required
+                    [ngClass]="{ 'is-invalid': visaForm1.submitted && currentAddress.invalid }">
+                  </textarea>
+                  </div>
+                  <br>
+                  
+                  <!--ZipCode-->
+                  <div class="form-group">
+                    <label for="zipCode">Zipcode/Pincode/Postal Code</label>
+                    <input 
+                    id="zipCode"  
+                    name="zipCode" 
+                    class="form-control" 
+                    placeholder="Zipcode/Postal Code"
+                    pattern="^\d{6}$"
+                    #zipCode = "ngModel"
+                    [(ngModel)]="model.zipCode"
+                    required
+                    [ngClass]="{ 'is-invalid': visaForm1.submitted && zipCode.invalid }">
+                  </div>
+                <br>
+                  
+                  <div class="row">
+                    <div class="col-sm-12">
+                    <div class="col-sm-4">
+                      
+                      <!--Coutry Code-->
+                      <div class="form-group">
+                      <label for="sel1">Country Code</label>
+                        <select
+                         class="form-control" 
+                         id="sel1" 
+                         name="sel1"
+                        #sel1 = "ngModel"
+                         [(ngModel)]="model.sel1"
+                         required
+                         [ngClass]="{ 'is-invalid': visaForm1.submitted && sel1.invalid }">  
+                         <option  *ngFor ='let code of countryCode'>{{code.dial_code}}  ({{code.code}})</option>
+                          
+                        </select>
+                    </div>
+                    </div>
+                    
+                    <div class="col-sm-8">
+                      <!--Mobile Number-->
+                      <div class="form-group">
+                      <label for="mobileNumber">Mobile Number (format: xxxxxxxxxx):</label>
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+                        <input 
+                          id="mobileNumber" 
+                          type="tel"
+                          pattern="^\d{10}$"
+                          class="form-control" 
+                          placeholder="Mobile" 
+                          name="mobileNumber" 
+                          #mobileNumber = "ngModel"
+                          [(ngModel)]="model.mobileNumber"
+                          required
+                          [ngClass]="{ 'is-invalid': visaForm1.submitted && mobileNumber.invalid }">
+                      </div>
+                    </div>    
+                  </div>
+                </div>
+                </div>
+                <br>
+                <!--Emergency Contact-->
+                <div class="form-group">
+                <label for="emergencyContact">Emergency Contact Person(can be from any country)</label>
+                <input  
+                  id="emergencyContact" 
+                  type="text" 
+                  class="form-control" 
+                  placeholder="Contact Person Name" 
+                  name="emergencyContact"
+                  #emergencyContact = "ngModel"
+                  [(ngModel)]="model.emergencyContact"
+                  required
+                  [ngClass]="{ 'is-invalid': visaForm1.submitted && emergencyContact.invalid }"> 
+                </div>
+                <br>  
+                 
+                <!--Relation Contact-->
+                <div class="form-group">
+                <label for="relationtoContact">Relation to Contact Person</label>
+                <select
+                 id="relationtoContact" 
+                 class="form-control" 
+                 name="relationtoContact"
+                 #relationtoContact = "ngModel"
+                 [(ngModel)]="model.relationtoContact"
+                 required
+                 [ngClass]="{ 'is-invalid': visaForm1.submitted && relationtoContact.invalid }">
+                  <option>Friend</option>
+                  <option>Family</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              </div>
+          
+              <div class="col-sm-6">
+    
+                <!--City-->
+                  <div class="form-group">
+                  <label for="city">city</label>
+                  <input
+                   id="city" 
+                   class="form-control" 
+                   placeholder="city" 
+                   name="city"
+                   #city = "ngModel"
+                   [(ngModel)]="model.city"
+                   required
+                   [ngClass]="{ 'is-invalid': visaForm1.submitted && city.invalid }">
+                  </div>
+                  <br>
+                  
+                  <!--State-->
+                  <div class="form-group">
+                  <label for="state">State/Province</label>
+                  <input
+                   id="state" 
+                   class="form-control" 
+                   placeholder="State" 
+                   name="state"
+                   #state = "ngModel"
+                   [(ngModel)]="model.state"
+                   required
+                   [ngClass]="{ 'is-invalid': visaForm1.submitted && state.invalid }">
+                  </div>
+                  <br>
+                  
+                  <!--Email-->
+                  <div class="form-group">
+                  <label for="email">Your Email Address</label>
+                  <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                  <input 
+                    id="email"  
+                    type="email" 
+                    class="form-control" 
+                    placeholder="email" 
+                    name="email"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                    #email = "ngModel"
+                    [(ngModel)]="model.email"
+                    required
+                    [ngClass]="{ 'is-invalid': visaForm1.submitted && email.invalid }">
+                </div>
+                </div>
+                <br>
+                
+                <!--Date Arrival-->
+                <div class="form-group">
+                <label for="dateArrival">Arrival Date in UAE</label>
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                  <input
+                   id="dateArrival"  
+                   type="date" 
+                   class="form-control" 
+                   placeholder="Date of Arrival" 
+                   name="dateArrival"
+                   #dateArrival = "ngModel"
+                   [(ngModel)]="model.dateArrival"
+                   required
+                   [ngClass]="{ 'is-invalid': visaForm1.submitted && dateArrival.invalid }">
+                </div>
+                </div>
+                <br>
+                
+                <!--Emergency Number-->
+                <div class="form-group">
+                <label for="emegencyNumber">Emergency Contact Number</label>
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+                    <input  
+                      id="emegencyNumber" 
+                      type="number" 
+                      class="form-control" 
+                      placeholder="Emergency Contact Number" 
+                      name="emegencyNumber"
+                      #emegencyNumber = "ngModel"
+                      [(ngModel)]="model.emegencyNumber"
+                      required
+                      [ngClass]="{ 'is-invalid': visaForm1.submitted && emegencyNumber.invalid }">
+                </div>
+                </div>
+                <br>
+                
+                <!--Purpose of Visit-->
+                <div class="form-group">
+                <label for="visit">Purpose Of Visit</label>
+                <select 
+                  id="visit" 
+                  class="form-control" 
+                  name="visit"
+                  #visit = "ngModel"
+                  [(ngModel)]="model.visit"
+                  required
+                  [ngClass]="{ 'is-invalid': visaForm1.submitted && visit.invalid }">
+                  <option>Business</option>
+                  <option>Leisure</option>
+                  <option>Both</option>
+                </select>
+                </div>
+                </div>
+    
+      </div>
+    </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-sm-12" style="padding-bottom: 60px;"> 
+        <div class="col-sm-5"></div>
+    
+        <div class="col-sm-4" style="padding-left: 60px ">
+          <div class="form-group">
+            <button  style="padding: 10px " class="btn btn-success">Continue</button>
+        </div>
+      </div>
+    </div>
+    </div>
+    </form>
+    </div>

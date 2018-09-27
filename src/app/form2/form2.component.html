@@ -1,0 +1,421 @@
+<div class="container">
+    <h2 style="font-family: 'Bree Serif', serif;text-align: center">Form</h2>
+    <hr>
+    <h3 style="font-family: 'Bree Serif', serif;text-align: center">Step 2</h3>
+    <h4 style="font-family: 'Bree Serif', serif;text-align: center">APPLICANT'S INFORMATION</h4>
+    <form  name="form" (ngSubmit)="userSubmit.form.valid && onSubmit()" #userSubmit="ngForm" novalidate>
+        <div class="well">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="col-sm-6">
+        
+                <!--First Name-->
+                <div class="form-group">
+                  <label for="firstName">First Name</label>
+                  <input 
+                    class="form-control" 
+                    placeholder="First Name"
+                    id="firstName"
+                    name="firstName"
+                    #firstName = "ngModel"
+                    [(ngModel)]="model.firstName"
+                    required
+                    [ngClass]="{ 'is-invalid': userSubmit.submitted && firstName.invalid }">
+                  </div>
+                  <br>
+        
+                <!--Last Name-->
+                <div class="form-group">
+                  <label for="lastName">Last Name</label>
+                  <input
+                   class="form-control" 
+                   placeholder="Last Name"
+                   id="lastName"
+                   name="lastName"
+                   #lastName = "ngModel"
+                   [(ngModel)]="model.lastName"
+                   required
+                   [ngClass]="{ 'is-invalid': userSubmit.submitted && lastName.invalid }">
+                   </div>
+                  <br>
+                  
+                  <!--Birth Date-->
+                  <div class="form-group">
+                  <label for="birthDate">Date of Birth</label>
+                  <input 
+                    type="date" 
+                    class="form-control" 
+                    placeholder="Date of Birth"
+                    name="birthDate"
+                    id="birthDate"
+                    #birthDate = "ngModel"
+                   [(ngModel)]="model.birthDate"
+                   required
+                   [ngClass]="{ 'is-invalid': userSubmit.submitted && birthDate.invalid }">
+                   </div>
+                  <br>
+        
+                  <!--Birth Country-->
+                  <div class="form-group">
+                  <label for="birthCountry">Birth Country</label>
+                  <select
+                   class="form-control"
+                   id="birthCountry"
+                   name="birthCountry"
+                   #birthCountry = "ngModel"
+                   [(ngModel)]="model.birthCountry"
+                   required
+                   [ngClass]="{ 'is-invalid': userSubmit.submitted && birthCountry.invalid }">
+                  
+                  <option *ngFor ='let conName of countryName'>{{conName.name}}</option>
+                  </select>
+                  </div>
+                  <br>
+        
+                  <!--Current Profession-->
+                  <div class="form-group">
+                  <label for="currentProfession">Current Profession</label>
+                    <input
+                     type="text" 
+                     class="form-control"
+                     name="currentProfession"
+                     id="currentProfession"
+                     #currentProfession = "ngModel"
+                    [(ngModel)]="model.currentProfession"
+                    required
+                    [ngClass]="{ 'is-invalid': userSubmit.submitted && currentProfession.invalid }">
+                   </div> 
+                   <br>  
+                  
+                   <!--Relation-->
+                  <div class="form-group"> 
+                  <label for="relation">Marital Status</label>
+                    <select 
+                    class="form-control" 
+                    name="relation"
+                    #relation = "ngModel"
+                    [(ngModel)]="model.relation"
+                    required
+                    [ngClass]="{ 'is-invalid': userSubmit.submitted && relation.invalid }">
+                      <option>Single</option>
+                      <option>Married</option>
+                      <option>Divorced</option>
+                      <option>Unspecific</option>
+                    </select>
+                </div>
+                </div>
+              
+                <div class="col-sm-6">
+                  
+                  <!--Middle Name-->
+                  <div class="form-group">
+                  <label for="middleName">Middle Name(optional)</label>
+                  <input 
+                  name="middleName"
+                  id="middleName"
+                  class="form-control" 
+                  placeholder="Middle Name"
+                  #middleName = "ngModel"
+                  [(ngModel)]="model.middleName">
+                  </div>
+                  <br>
+        
+                  <!--Religion-->
+                  <div class="form-group">
+                  <label for="religion">Religion</label>
+                  <select 
+                    class="form-control"
+                    id="religion"
+                    name="religion"
+                    #religion = "ngModel"
+                    [(ngModel)]="model.religion"
+                    required
+                    [ngClass]="{ 'is-invalid': userSubmit.submitted && religion.invalid }">
+                        <option>Hindu</option>
+                        <option>Islam</option>
+                        <option>Buddhism</option>
+                        <option>shik</option>
+                    </select>
+                  </div>
+                  <br>
+        
+                  <!--Gender-->
+                  <div class="form-group">
+                  <label for="gender">Gender</label>
+                  <select
+                   class="form-control"
+                   id="gender"
+                   name="gender"
+                   #gender = "ngModel"
+                   [(ngModel)]="model.gender"
+                   required
+                   [ngClass]="{ 'is-invalid': userSubmit.submitted && gender.invalid }">
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+                    </div>
+                  <br>
+        
+                  <!--Birth Place-->
+                  <div class="form-group">
+                  <label for="birthPlace">Birth Place</label>
+                  <input 
+                   type="text" 
+                   class="form-control" 
+                   placeholder="Birth Place"
+                   name="birthPlace"
+                   id="birthPlace"
+                   #birthPlace = "ngModel"
+                   [(ngModel)]="model.birthPlace"
+                   required
+                   [ngClass]="{ 'is-invalid': userSubmit.submitted && birthPlace.invalid }">
+                   </div>
+                  <br>
+        
+                  <!--Education Qualification-->
+                 <div class="form-group"> 
+                  <label for="education">Educational Qualification</label>
+                  <input  
+                    type="text" 
+                    class="form-control" 
+                    placeholder="Educational Qualification"
+                    name="education"
+                    id="education"
+                    #education = "ngModel"
+                   [(ngModel)]="model.education"
+                   required
+                   [ngClass]="{ 'is-invalid': userSubmit.submitted && education.invalid }">
+                  </div>
+                   <br>
+            </div>
+          </div>
+        </div>
+        
+        <!--Family Details-->
+        <div class="row" style="padding-top:30px;">
+          <div class="col-sm-12">
+            <div class="panel panel-success">
+            <div class="panel-heading">
+              <span>FAMILY DETAILS</span>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="fatherName">Father Name</label>
+                      <input  
+                      type="text" 
+                      class="form-control" 
+                      placeholder="Father Name"
+                      name="fatherName"
+                      id="fatherName"
+                      #fatherName = "ngModel"
+                   [(ngModel)]="model.fatherName"
+                   required
+                   [ngClass]="{ 'is-invalid': userSubmit.submitted && fatherName.invalid }">
+                  </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">  
+                    <label for="motherName">Mother Name</label>
+                      <input
+                        type="text" 
+                        class="form-control" 
+                        placeholder="Mother Name"
+                        id="motherName"
+                        name="motherName"
+                        #motherName= "ngModel"
+                        [(ngModel)]="model.motherName"
+                        required
+                        [ngClass]="{ 'is-invalid': userSubmit.submitted && motherName.invalid }">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+            </div>
+            </div>
+        
+            <!--Passport infomation-->
+            <div class="row" style="padding-top:30px;">
+                <div class="col-sm-12">
+                  <div class="panel panel-success">
+                  <div class="panel-heading">
+                    <span>PASSPORT INFORMATION</span>
+                  </div>
+                  <div class="panel-body">
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                          <label for="passport">Passport Number</label>
+                            <input  
+                             type="number"
+                             class="form-control"
+                              placeholder="Passport Number"
+                              name="passport"
+                              id="passport"
+                              #passport = "ngModel"
+                              [(ngModel)]="model.passport"
+                              required
+                              [ngClass]="{ 'is-invalid': userSubmit.submitted && passport.invalid }">
+                            </div>
+                              <br>
+                            <div class="form-group">  
+                            <label for="issuingCountry">Issuing Country</label>
+                            <select
+                             class="form-control"
+                             id="issuingCountry"
+                             name="issuingCountry"
+                             #issuingCountry = "ngModel"
+                            [(ngModel)]="model.issuingCountry"
+                            required
+                            [ngClass]="{ 'is-invalid': userSubmit.submitted && issuingCountry.invalid }"> 
+                             <option *ngFor="let con of countryName">{{con.name}}</option> 
+                            </select>
+                          </div>
+                          <br>
+                          
+                          <div class="form-group">
+                            <label for="expiryDate">Expiry Date</label>
+                            <input 
+                              type="date" 
+                              class="form-control" 
+                              placeholder="Expiry Date"
+                              name="expiryDate"
+                              id="expiryDate"
+                              #expiryDate = "ngModel"
+                              [(ngModel)]="model.expiryDate"
+                              required
+                              [ngClass]="{ 'is-invalid': userSubmit.submitted && expiryDate.invalid }">
+                          </div>
+                      </div>
+                      
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                        <label for="issuePlace">Place of Issue</label>
+                          <input
+                           type="text" 
+                           class="form-control" 
+                           placeholder="Place of Issue"
+                           id="issuePlace"
+                           name="issuePlace"
+                           #issuePlace = "ngModel"
+                           [(ngModel)]="model.issuePlace"
+                           required
+                           [ngClass]="{ 'is-invalid': userSubmit.submitted && issuePlace.invalid }">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                          <label for="issueDate">Issue Date</label>
+                            <input
+                              type="date" 
+                              class="form-control" 
+                              placeholder="Issue Date"
+                              id="issueDate"
+                              name="issueDate"
+                              #issueDate = "ngModel"
+                             [(ngModel)]="model.issueDate"
+                             required
+                             [ngClass]="{ 'is-invalid': userSubmit.submitted && issueDate.invalid }">
+                          </div>  
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                  </div>
+                 </div>
+
+            <!--Upload Documents-->
+             <!--Upload Documents-->
+             <div class="row" style="padding-top:30px;">
+                    <div class="col-sm-12">
+                    <div class="panel panel-success">
+                    <div class="panel-heading">
+                    <span>UPLOAD DOCUMENTS</span>
+                    </div>
+                            <div class="panel-body">
+                              <div class="row">
+                                <div class="col-sm-12">
+                                  <div class="col-sm-4">
+                                    <div class="form-group">
+                                      <label for="coloredPassport">Colored Passport copy</label>
+                                      <input
+                                        type="file" 
+                                        class="form-control" 
+                                        name="coloredPassport"
+                                        id="coloredPassport"
+                                        #coloredPassport = "ngModel"
+                                        [(ngModel)]="model.coloredPassport"
+                                        required
+                                        [ngClass]="{ 'is-invalid': userSubmit.submitted && coloredPassport.invalid }">
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="coloredPhoto">Colored Photo</label>
+                                                <input
+                                                  type="file" 
+                                                  class="form-control" 
+                                                  name="coloredPhoto"
+                                                  id="coloredPhoto"
+                                                  #coloredPhoto = "ngModel"
+                                                  [(ngModel)]="model.coloredPhoto"
+                                                  required
+                                                  [ngClass]="{ 'is-invalid': userSubmit.submitted && coloredPhoto.invalid }">
+                                        </div>
+                                  </div>
+                                  
+                                  <div class="col-sm-4">
+                                        <div class="form-group">
+                                                <label for="residenceProof">Residence Proof</label>
+                                                <input
+                                                  type="file" 
+                                                  class="form-control" 
+                                                  name="residenceProof"
+                                                  id="residenceProof"
+                                                  #residenceProof = "ngModel"
+                                                  [(ngModel)]="model.residenceProof"
+                                                  required
+                                                  [ngClass]="{ 'is-invalid': userSubmit.submitted && residenceProof.invalid }">
+                                              </div>
+                                    <!-- <div class="form-group">
+                                    <label for="residenceProof">Proof of Residence</label>
+                                      <input
+                                        type="file" 
+                                        class="form-control" 
+                                        placeholder="Father Name"
+                                        name="residenceProof"
+                                        id="residenceProof"
+                                        #residenceProof = "ngModel"
+                                        [(ngModel)]="model.residenceProof"
+                                        required
+                                        [ngClass]="{ 'is-invalid': userSubmit.submitted && residenceProof.invalid">
+                                    </div> -->
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                <!--Submit Button-->
+                <div class="row">
+                <div class="col-sm-12" style="padding-bottom: 60px;"> 
+                  <div class="col-sm-5"></div>
+                    
+                  <div class="col-sm-4" style="padding-left: 60px ">
+                    <div class="form-group">
+                      <button  style="padding: 10px " class="btn btn-success">Submit</button>
+                    </div>
+                  </div>
+                </div>
+               </div>
+            </form>
+          </div>

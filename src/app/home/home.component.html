@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="panel panel-primary">
+      <div class="panel-heading" style="text-align: center">
+        <span style="font-family: 'Bree Serif', serif;">APPLY NOW</span>
+      </div>
+      <div class="panel-body">
+       <form #countryForm="ngForm" name="form" (ngSubmit)="country1.value !== country2.value && countryForm.form.valid && onSubmit()" novalidate>
+       <div class="row">
+        <div class="col-sm-12 paneldown">
+        <div class="col-sm-6">
+        <div class="form-group">   
+        
+        
+        <label for="country1">I am citizen  of</label>
+        <input
+          required
+          list="countries"
+          [(ngModel)]="model.contry1"
+          name="country1"
+          #country1 = "ngModel"
+          [ngClass]="{ 'is-invalid': countryForm.submitted && country1.invalid  }"
+          placeholder="select country you from"
+          id="country1" 
+          class="form-control">
+          <datalist id="countries">
+            <option  *ngFor ='let country of countries'> {{country.name}}</option>
+          </datalist>
+          <div class="alert alert-danger" *ngIf="!country1.valid && country1.touched" >this is required</div>
+          </div>
+          </div>
+  
+          <div class="col-sm-5">
+          <div class="form-group">
+          <label for="country2">I am living in</label>
+          <input 
+            list="countries" 
+            name="country2"
+            #country2 = "ngModel"
+            [(ngModel)]="model.contry2"
+            required
+            [ngClass]="{ 'is-invalid': (countryForm.submitted && country2.invalid)}"
+            placeholder="select country you are living"
+            id="country2"
+            
+            class="form-control">
+            <datalist id="countries">
+            <option  *ngFor ='let country of countries'> {{country.name}}</option>
+            </datalist>
+            <div class="alert alert-danger" *ngIf="!country2.valid && country2.touched">This is required</div>
+            <div class="alert alert-danger" *ngIf="country1.value == country2.value && country2.touched">Both countries can't be same</div>
+          </div>
+          </div>
+          
+          <div class="col-sm-1"> 
+            <div class="form-group">
+            <button class="btn btn-success go">GO</button>
+          </div>
+          </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  </div> 
+  
